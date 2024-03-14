@@ -133,6 +133,52 @@ public class calc {
                 numPresser(0);
             }
         });
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                usr.setText("");
+                firstOne=0;
+                operation=0;
+            }
+        });
+        eqlBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int temp=Integer.valueOf(usr.getText());
+                try{
+                    if(operation==1){
+                        firstOne=firstOne*temp;
+                    }
+                    if(operation==2){
+                        firstOne=firstOne+temp;
+                    }
+                    if(operation==3){
+                        firstOne=firstOne/temp;
+                    }
+                    if(operation==4){
+                        firstOne=firstOne-temp;
+                    }
+                    else{
+                        usr.setText("err");
+                    }
+                    usr.setText(String.valueOf(firstOne));
+                    firstOne=0;
+                    operation=0;
+                    ready=false;
+                }
+                catch(Exception y){
+                    setNum(0);
+                }
+            }
+        });
+        negateBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String getText= usr.getText();
+                int temp=Integer.valueOf(getText);
+                usr.setText(String.valueOf(-temp));
+            }
+        });
 
         frame.pack();
     }
@@ -163,6 +209,7 @@ public class calc {
         getText=getText+i;
         usr.setText(getText);
     }
+
 
     public static calc getInstance(){
         if(initialized==null){
