@@ -157,13 +157,13 @@ public class calc {
     }
     private void numPresser(int i){
         String getText=usr.getText();
+        //if text is err clear when num is pressed
         if(getText.equals("err"))
             getText="";
         getText=getText+i;
         usr.setText(getText);
     }
 
-    //if text is err clear when num is pressed
     public static calc getInstance(){
         if(initialized==null){
             initialized=new calc();
