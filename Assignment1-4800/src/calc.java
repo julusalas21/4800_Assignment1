@@ -26,8 +26,9 @@ public class calc {
     private JButton decButton;
     private JButton eqlBtn;
     private JButton backButton;
-    private int firstOne;
+    private int firstOne= Integer.parseInt(null);
     private boolean ready;
+    private int operation;
 
     private static calc initialized=null;
 
@@ -45,29 +46,58 @@ public class calc {
         ImageIcon icon = new ImageIcon("src/calculator.png");
         frame.setIconImage(icon.getImage());
 
+        //operations
         multBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setNum();
+                setNum(1);
+            }
+        });
+        plusBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setNum(2);
+            }
+        });
+        divBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setNum(3);
+            }
+        });
+        minBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setNum(4);
             }
         });
 
         frame.pack();
     }
-    private void setNum(){
+    private void setNum(int i){
         String getText= usr.getText();
         int temp=Integer.valueOf(getText);
         if(!ready){
             firstOne=temp;
             ready=true;
+            usr.setText("");
+            operation=i;
         }
         //when both numbers are ready
         //throw error
 
-
-
-        else{}
+        else{
+            usr.setText("err");
+            firstOne= Integer.parseInt(null);
+            ready=false;
+            operation= Integer.parseInt(null);
+        }
     }
+    private void numPresser(int i){
+        
+    }
+
+    //if text is err clear when num is pressed
     public static calc getInstance(){
         if(initialized==null){
             initialized=new calc();
