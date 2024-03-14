@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class calc {
     private JFrame frame;
@@ -24,6 +26,8 @@ public class calc {
     private JButton decButton;
     private JButton eqlBtn;
     private JButton backButton;
+    private int firstOne;
+    private boolean ready;
 
     private static calc initialized=null;
 
@@ -41,9 +45,29 @@ public class calc {
         ImageIcon icon = new ImageIcon("src/calculator.png");
         frame.setIconImage(icon.getImage());
 
+        multBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setNum();
+            }
+        });
+
         frame.pack();
     }
+    private void setNum(){
+        String getText= usr.getText();
+        int temp=Integer.valueOf(getText);
+        if(!ready){
+            firstOne=temp;
+            ready=true;
+        }
+        //when both numbers are ready
+        //throw error
 
+
+
+        else{}
+    }
     public static calc getInstance(){
         if(initialized==null){
             initialized=new calc();
