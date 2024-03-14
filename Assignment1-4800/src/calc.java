@@ -179,6 +179,15 @@ public class calc {
                 usr.setText(String.valueOf(-temp));
             }
         });
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String string = usr.getText();
+                StringBuffer sb= new StringBuffer(string);
+                sb.deleteCharAt(sb.length()-1);
+                usr.setText(sb.toString());
+            }
+        });
 
         frame.pack();
     }
