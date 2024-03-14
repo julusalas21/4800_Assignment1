@@ -157,6 +157,8 @@ public class calc {
     }
     private void numPresser(int i){
         String getText=usr.getText();
+        if(getText.equals("err"))
+            getText="";
         getText=getText+i;
         usr.setText(getText);
     }
