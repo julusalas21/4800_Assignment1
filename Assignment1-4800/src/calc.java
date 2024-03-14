@@ -26,7 +26,7 @@ public class calc {
     private JButton decButton;
     private JButton eqlBtn;
     private JButton backButton;
-    private int firstOne= Integer.parseInt(null);
+    private int firstOne;
     private boolean ready;
     private int operation;
 
@@ -72,6 +72,68 @@ public class calc {
             }
         });
 
+        a1Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numPresser(1);
+            }
+        });
+        a2Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numPresser(2);
+            }
+        });
+        a3Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numPresser(3);
+            }
+        });
+        a4Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numPresser(4);
+            }
+        });
+        a5Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numPresser(5);
+            }
+        });
+        a6Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numPresser(6);
+            }
+        });
+        a7Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numPresser(7);
+            }
+        });
+
+        a8Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numPresser(8);
+            }
+        });
+        a9Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numPresser(9);
+            }
+        });
+        a0Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numPresser(0);
+            }
+        });
+
         frame.pack();
     }
     private void setNum(int i){
@@ -88,13 +150,15 @@ public class calc {
 
         else{
             usr.setText("err");
-            firstOne= Integer.parseInt(null);
+            firstOne= 0;
             ready=false;
-            operation= Integer.parseInt(null);
+            operation= 0;
         }
     }
     private void numPresser(int i){
-        
+        String getText=usr.getText();
+        getText=getText+i;
+        usr.setText(getText);
     }
 
     //if text is err clear when num is pressed
